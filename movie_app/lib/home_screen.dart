@@ -1,5 +1,7 @@
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter/material.dart';
+import 'package:movie_app/api/api.dart';
+import 'package:movie_app/models/movie.dart';
 import 'package:movie_app/widgets/top_rated_Slider.dart';
 import 'package:movie_app/widgets/trending_slider.dart';
 
@@ -11,6 +13,14 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  late Future<List<Movie>> trendingMovies;
+
+  @override
+  void initState() {
+    super.initState();
+    trendingMovies = ApiService().getTrendingMovies();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -39,17 +49,21 @@ class _HomeScreenState extends State<HomeScreen> {
               const SizedBox(
                 height: 32,
               ),
-             const TrendingSlider(),
+              const TrendingSlider(),
               const SizedBox(
                 height: 32,
               ),
-              Text("Top Rated movies",style: GoogleFonts.aBeeZee(fontSize: 25),
+              Text(
+                "Top Rated movies",
+                style: GoogleFonts.aBeeZee(fontSize: 25),
               ),
               const TopRatedSlider(),
               const SizedBox(
                 height: 32,
               ),
-              Text("Upcoming Movies",style: GoogleFonts.aBeeZee(fontSize: 25),
+              Text(
+                "Upcoming Movies",
+                style: GoogleFonts.aBeeZee(fontSize: 25),
               ),
               const TopRatedSlider()
             ],
@@ -59,6 +73,3 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 }
-
-
-
