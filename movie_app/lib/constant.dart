@@ -1,3 +1,4 @@
 class Constants {
-  static const apiKey = 'd4dc40f0acbb0c11a6c49773a5a4754d';
+  static const apiKey = 'f6445f547d95c71be8fc74e9d71fa999';
+  static const imagepath ="https://image.tmdb.org/t/p/w500";
 }

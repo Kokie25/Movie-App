@@ -27,8 +27,8 @@ class Movie {
       original_title:json["original_title"],
       overview:json["overview"] ,
       poster_path:json["poster_path"] ,
-      release_date: json["release_date"] ,
-      vote_average: json["vote_average"] ,
+      release_date: json["release_date"],
+      vote_average: json["vote_average"].toDouble() ,
     );
   }
 
